@@ -41,3 +41,22 @@ class Solution2{
 }
 //Time Complexity : O(N*M)
 //Space Complexity : O(N*M)
+
+//Space Optimized Approach
+class Solution3{
+  int uniquePaths(int m, int n) {
+      vector<int> prev(n,1);
+
+      for(int i=1; i<m; i++){
+          vector<int> cur(n,0);
+          for(int j=0; j<n; j++){
+             cur[j] = prev[j] + (i>0 ? cur[j-1] : 0);
+          }
+          prev = cur;
+      }
+
+      return prev[n-1];
+  }
+}
+//Time Complexity : O(N*M)
+//Space Complexity : O(N)
