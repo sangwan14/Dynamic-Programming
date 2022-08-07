@@ -24,7 +24,7 @@ class Solution{
 
       return res;
   }
-}
+};
 //Time Complexity : O(N*3*3)
 //Space Complexity : O(N*3)
 
@@ -47,7 +47,7 @@ class Solution2{
 
       return max(dp[n-1][0],dp[n-1][1]);
   }
-}
+};
 //Time Complexity : O(N*3*3)
 //Space Complexity : O(N*3)
 
@@ -73,5 +73,4 @@ class Solution3{
 
       return max(prev[0],prev[1]);
   }
-}  
-  
+};  
