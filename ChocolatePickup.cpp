@@ -25,7 +25,7 @@ class Solution{
       vector<vector<vector<int>>> dp(r, vector<vector<int>> (c, vector<int> (c,-1)));
       return solve(0,0,c-1,r,c,grid,dp);
   }
-}
+};
 //TC : O(N*M*M*3)
 //SC :  O(N*M*M) [DP array] + O(N) [Recursion Stack Space] 
 
@@ -66,6 +66,49 @@ class Solution2{
       vector<vector<vector<int>>> dp(r, vector<vector<int>> (c, vector<int> (c,-1)));
       return solve(r,c,grid,dp);
   }
-}
+};
 //TC : O(N*M*M*3)
 //SC : O(N*M*M) [DP array]
+
+//Space Optimization
+class Solution3{
+  int solve(int r, int c, vector<vector<int>> &grid){
+      vector<vector<int>> prev(c,vector<int> (c,0));
+      for(int j1=0; j1<c; j1++){
+          for(int j2=0; j2<c; j2++){
+              if(j1==j2) prev[j1][j2] = grid[r-1][j1];
+              else prev[j1][j2] = grid[r-1][j1] + grid[r-1][j2];
+          }
+      }
+
+      for(int i=r-2; i>=0; i--){
+          vector<vector<int>> cur(c, vector<int> (c,0));
+          for(int j1=0; j1<c; j1++){
+              for(int j2=0; j2<c; j2++){
+                  int res = -1e8;
+                  for(int dj1=-1; dj1<=1; dj1++){
+                      for(int dj2=-1; dj2<=1; dj2++){
+                          int val = -1e8;
+                          if(j1+dj1>=0 and j2+dj2>=0 and j1+dj1<c and j2+dj2<c){
+                              val = prev[j1+dj1][j2+dj2];
+                              if(j1==j2) val+= grid[i][j1];
+                              else val+= grid[i][j1] + grid[i][j2];
+                          }  
+                          res = max(res,val);
+                      }
+                  }
+                  cur[j1][j2] = res;
+              }
+          }
+          prev = cur;
+      }
+
+      return prev[0][c-1];
+  }
+
+  int maximumChocolates(int r, int c, vector<vector<int>> &grid) {
+      return solve(r,c,grid);
+  }
+};
+//TC : O(N*M*M*3)
+//SC : O(M*M) 
