@@ -26,7 +26,7 @@ class Solution{
       return solve(0,0,c-1,r,c,grid,dp);
   }
 };
-//TC : O(N*M*M*3)
+//TC : O(N*M*M*3*3)
 //SC :  O(N*M*M) [DP array] + O(N) [Recursion Stack Space] 
 
 //Tabulation
@@ -67,7 +67,7 @@ class Solution2{
       return solve(r,c,grid,dp);
   }
 };
-//TC : O(N*M*M*3)
+//TC : O(N*M*M*3*3)
 //SC : O(N*M*M) [DP array]
 
 //Space Optimization
@@ -110,5 +110,5 @@ class Solution3{
       return solve(r,c,grid);
   }
 };
-//TC : O(N*M*M*3)
+//TC : O(N*M*M*3*3)
 //SC : O(M*M) 
