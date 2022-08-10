@@ -27,6 +27,6 @@ class Solution{
       return prev[k];
   }
 };
-//TC : O(N * total Sum)
-//SC : O(total Sum)
+//TC : O(N*K)
+//SC : O(K)
 
