@@ -1,3 +1,4 @@
+//Space Optimized
 class Solution{
   int cutRod(vector<int> &price, int n)
   {
@@ -20,3 +21,5 @@ class Solution{
       return prev[n];
   }
 };
+//TC : O(N*N)
+//SC : O(N)
