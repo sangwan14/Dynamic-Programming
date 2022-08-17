@@ -49,7 +49,7 @@ class Solution2{
     } 
 };
 //TC : O(N*M)
-//SC : O(min(N,M))
+//SC : O(N*M) [Dp array]
 
 //Space Optimized
 class Solution3{
