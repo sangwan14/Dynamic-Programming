@@ -19,22 +19,20 @@ class Solution{
 
       return dp[ind][buy] = profit;
   }
+  long getMaximumProfit(long *Arr, int n)
+  {
+      //Write your code here
+
+      vector<vector<long>> dp(n,vector<long>(2,-1));
+
+      if(n==0) return 0;
+      long ans = getAns(Arr,0,0,n,dp);
+      return ans;
+  }    
 };
 //TC : O(N*2)
 //SC : O(N*2) + O(N)
-
-
-long getMaximumProfit(long *Arr, int n)
-{
-    //Write your code here
-    
-    vector<vector<long>> dp(n,vector<long>(2,-1));
-    
-    if(n==0) return 0;
-    long ans = getAns(Arr,0,0,n,dp);
-    return ans;
-}
-          
+     
 };
 //Tabulation
 class Solution2{
